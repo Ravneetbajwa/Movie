@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--mainpage-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="mainpage" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="APIDemo_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Vancouver" id="x5x-MS-41c"/>
+                        <separator width="50" alignment="center" id="BCC-Js-YdA">
+                            <color key="color" red="0.38823530080000002" green="0.85490196939999996" blue="0.21960784489999999" alpha="1" colorSpace="deviceRGB"/>
+                        </separator>
+                        <group width="1" alignment="left" id="B4U-iz-uhx">
+                            <items>
+                                <imageView width="32" height="32" alignment="left" verticalAlignment="center" image="movie" id="eia-gT-ki3"/>
+                                <group width="1" alignment="left" layout="vertical" id="b0v-Ko-CSZ">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Movie Name" id="05p-Cf-yIn"/>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" id="Jf3-5q-P0k">
+                                            <items>
+                                                <imageView width="16" height="16" alignment="left" verticalAlignment="center" id="paz-kg-oJ4"/>
+                                                <label alignment="left" verticalAlignment="center" text="Rise Time" id="s03-St-nUs"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                        </group>
+                        <group width="1" alignment="left" id="ai6-yJ-VsG">
+                            <items>
+                                <imageView width="32" height="32" alignment="left" verticalAlignment="center" image="movie2" id="q07-S1-8Gf"/>
+                                <group width="1" alignment="left" layout="vertical" id="KhF-3g-fbe">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Movie Release" id="7SV-9T-4DI"/>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" id="r51-y5-Y6n">
+                                            <items>
+                                                <imageView width="16" height="16" alignment="left" verticalAlignment="center" id="l29-la-ETP"/>
+                                                <label height="20" alignment="left" verticalAlignment="center" text="Set Time" id="Am1-ow-zVk"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <button alignment="center" verticalAlignment="bottom" id="Khu-Wt-J5j">
+                            <group key="contentGroup" height="30" alignment="left" spacing="5" id="SxN-iX-ypb">
+                                <items>
+                                    <imageView width="16" height="16" alignment="left" verticalAlignment="center" image="settings-light" id="OZy-wD-JTL"/>
+                                    <label alignment="center" verticalAlignment="center" text="Change Movie" id="JTF-Ug-g6d">
+                                        <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="13"/>
+                                    </label>
+                                </items>
+                                <color key="backgroundColor" red="0.1756665686560418" green="0.1756665686560418" blue="0.1756665686560418" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="7" right="7" top="0.0" bottom="0.0"/>
+                            </group>
+                            <connections>
+                                <segue destination="dET-wg-Ecw" kind="push" identifier="segueA" id="2h5-8Z-jVh"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="changeMovie" destination="JTF-Ug-g6d" id="08M-1W-Yzy"/>
+                        <outlet property="cityLabel" destination="x5x-MS-41c" id="X7N-GP-ccw"/>
+                        <outlet property="loadingSunriseImage" destination="paz-kg-oJ4" id="aWC-xJ-h7P"/>
+                        <outlet property="loadingSunsetImage" destination="l29-la-ETP" id="dSN-Ad-YuX"/>
+                        <outlet property="sunriseLabel" destination="s03-St-nUs" id="daj-Hp-kPp"/>
+                        <outlet property="sunsetLabel" destination="Am1-ow-zVk" id="qC0-pA-uRQ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="34" y="99"/>
+        </scene>
+        <!--City Settings Interface Controller-->
+        <scene sceneID="w2X-0G-85q">
+            <objects>
+                <controller id="dET-wg-Ecw" customClass="CitySettingsInterfaceController" customModule="APIDemo_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Select Movie" id="y7T-Iy-x3w">
+                            <connections>
+                                <action selector="selectCityPressed" destination="dET-wg-Ecw" id="D0p-x7-XPX"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="Current Movie" id="ttp-dy-die"/>
+                        <label alignment="left" text="-" id="KlF-ph-xOU"/>
+                        <button alignment="center" verticalAlignment="bottom" id="BRX-R9-u7q">
+                            <group key="contentGroup" width="1" alignment="left" spacing="10" id="89y-or-vE2">
+                                <items>
+                                    <imageView width="32" height="32" alignment="left" id="m8G-26-vj3"/>
+                                    <label alignment="left" verticalAlignment="center" text="Save" id="lBp-rc-Emq"/>
+                                </items>
+                                <edgeInsets key="margins" left="7" right="7" top="5" bottom="5"/>
+                            </group>
+                            <connections>
+                                <action selector="saveButtonPressed" destination="dET-wg-Ecw" id="A2l-ZC-cri"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="loadingImage" destination="m8G-26-vj3" id="gAd-dN-jme"/>
+                        <outlet property="saveButtonLabel" destination="lBp-rc-Emq" id="43r-1e-sF1"/>
+                        <outlet property="savedCityLabel" destination="KlF-ph-xOU" id="Wxr-8c-0UI"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="355" y="97"/>
+        </scene>
+    </scenes>
+</document>
